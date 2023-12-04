@@ -1,0 +1,112 @@
+{
+  "books": [
+    {
+      "title": "The Name of the Wind",
+      "author": "Patrick Rothfuss",
+      "pages": 662,
+      "genre": "Fantasy"
+    },
+    {
+      "title": "A Wise Man`s Fear",
+      "author": "Patrick Rothfuss",
+      "pages": 994,
+      "genre": "Fantasy"
+    },
+    {
+      "title": "The Way of Kings",
+      "author": "Brandon Sanderson",
+      "pages": 1007,
+      "genre": "Fantasy"
+    },
+    {
+      "title": "The Last Argument of Kings",
+      "author": "Joe Abercrombie",
+      "pages": 536,
+      "genre": "Fantasy"
+    },
+    {
+      "title": "The Blade Itself",
+      "author": "Joe Abercrombie",
+      "pages": 536,
+      "genre": "Fantasy"
+    },
+    {
+      "title": "1984",
+      "author": "George Orwell",
+      "pages": 328,
+      "genre": "Dystopian"
+    },
+    {
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "pages": 281,
+      "genre": "Classic"
+    },
+    {
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "pages": 180,
+      "genre": "Classic"
+    },
+    {
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "pages": 432,
+      "genre": "Romance"
+    },
+    {
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": "J.K. Rowling",
+      "pages": 223,
+      "genre": "Fantasy"
+    },
+    {
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "pages": 310,
+      "genre": "Fantasy"
+    },
+    {
+      "title": "Brave New World",
+      "author": "Aldous Huxley",
+      "pages": 288,
+      "genre": "Dystopian"
+    },
+    {
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "pages": 234,
+      "genre": "Classic"
+    },
+    {
+      "title": "The Lord of the Rings",
+      "author": "J.R.R. Tolkien",
+      "pages": 1178,
+      "genre": "Fantasy"
+    },
+    {
+      "title": "The Da Vinci Code",
+      "author": "Dan Brown",
+      "pages": 454,
+      "genre": "Mystery Thriller"
+    },
+    {
+      "title": "The Alchemist",
+      "author": "Paulo Coelho",
+      "pages": 208,
+      "genre": "Adventure Fiction"
+    },
+    {
+      "title": "Animal Farm",
+      "author": "George Orwell",
+      "pages": 112,
+      "genre": "Political Satire"
+    },
+    {
+      "title": "Gone Girl",
+      "author": "Gillian Flynn",
+      "pages": 432,
+      "genre": "Thriller"
+    }
+  ]
+}

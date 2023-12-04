@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const authController = require("../controllers/auth.controller");
 const usersController = require("../controllers/users.controller");
+const booksController = require("../controllers/books.controller");
 const authMiddleware = require("../middlewares/auth.middlewares");
 
 router.get("/", authMiddleware.isAuthenticated, (req, res, next) => {
@@ -17,5 +18,8 @@ router.get("/activate/:token", authController.activate);
 
 // users
 router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
+
+// books
+router.get("/books", authMiddleware.isAuthenticated, booksController.list);
 
 module.exports = router;
