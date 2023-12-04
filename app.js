@@ -27,10 +27,16 @@ app.use((req, res, next) => {
 const router = require("./router/router");
 app.use("/", router);
 
-app.use((req, res, next) => {
-  res.status(404);
-  res.render("not-found");
-});
+// Middleware to handle errors.
+app.use((err, req, res, next) => {
+  console.error(err);
+
+  if (err.status === 404) {
+    res.render('error', { title: err.message })
+  } else {
+    res.render('error');
+  }
+})
 
 const port = process.env.PORT || 3000;
 
