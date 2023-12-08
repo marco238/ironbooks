@@ -109,7 +109,7 @@ module.exports.doLogin = (req, res, next) => {
                 renderWithErrors();
               } else {
                 if (!dbUser.isActive) {
-                  renderWithErrors('User not active');
+                  renderWithErrors('User not active, check your inbox!');
                 } else {
                   req.session.currentUser = dbUser;
                   res.redirect('/profile');
