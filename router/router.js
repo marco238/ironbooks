@@ -2,7 +2,9 @@ const router = require("express").Router();
 const authController = require("../controllers/auth.controller");
 const usersController = require("../controllers/users.controller");
 const booksController = require("../controllers/books.controller");
-const authMiddleware = require("../middlewares/auth.middlewares");
+const commentsController = require("../controllers/comments.controller");
+const authMiddleware = require("../middlewares/auth.middleware");
+const upload = require("../config/storage.config");
 
 router.get("/", authMiddleware.isAuthenticated, (req, res, next) => {
   res.render("home");
@@ -21,5 +23,15 @@ router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
 
 // books
 router.get("/books", authMiddleware.isAuthenticated, booksController.list);
+router.get("/books/create", authMiddleware.isAuthenticated, booksController.create);
+router.post("/books/create", authMiddleware.isAuthenticated, upload.single('image'), booksController.doCreate);
+router.get("/books/:id", authMiddleware.isAuthenticated, booksController.details);
+router.get("/books/:id/delete", authMiddleware.isAuthenticated, booksController.delete);
+router.get("/books/:id/update", authMiddleware.isAuthenticated, booksController.update);
+router.post("/books/:id/update", authMiddleware.isAuthenticated, upload.single('image'), booksController.doUpdate);
+
+// comments
+router.get("/comments/:id/delete", authMiddleware.isAuthenticated, commentsController.delete);
+router.post("/comments/:id/create", authMiddleware.isAuthenticated, commentsController.doCreate);
 
 module.exports = router;

@@ -8,6 +8,9 @@ require("./config/db.config"); // es como si pusieramos todas las lineas del db.
 
 const app = express();
 
+const { isSelected } = require("./helpers");
+hbs.registerHelper("isSelected", isSelected);
+
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
