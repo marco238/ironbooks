@@ -5,6 +5,12 @@ const booksController = require("../controllers/books.controller");
 const commentsController = require("../controllers/comments.controller");
 const authMiddleware = require("../middlewares/auth.middleware");
 const upload = require("../config/storage.config");
+const passport = require('passport');
+
+const GOOGLE_SCOPES = [
+  'https://www.googleapis.com/auth/userinfo.email',
+  'https://www.googleapis.com/auth/userinfo.profile'
+]
 
 router.get("/", authMiddleware.isAuthenticated, (req, res, next) => {
   res.render("home");
@@ -17,6 +23,10 @@ router.get("/register", authMiddleware.isNotAuthenticated, authController.regist
 router.post("/register", authMiddleware.isNotAuthenticated, authController.doRegister);
 router.get("/logout", authMiddleware.isAuthenticated, authController.logout);
 router.get("/activate/:token", authController.activate);
+
+// Google auth
+router.get('/auth/google', authMiddleware.isNotAuthenticated, passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }));
+router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authController.doLoginGoogle)
 
 // users
 router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
