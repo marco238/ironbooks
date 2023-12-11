@@ -8,12 +8,6 @@ passport.serializeUser((user, next) => {
   next(null, user);
 })
 
-passport.deserializeUser((id, next) => {
-  User.findById(id)
-    .then((user => next(null, user)))
-    .catch(next);
-})
-
 passport.use('google-auth', new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
