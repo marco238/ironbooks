@@ -22,7 +22,7 @@ app.set("view engine", "hbs");
 
 hbs.registerPartials(__dirname + "/views/partials");
 
-const { sessionConfig } = require("./config/session.config");
+const sessionConfig = require("./config/session.config");
 app.use(sessionConfig);
 
 app.use(passport.initialize());
