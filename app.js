@@ -3,10 +3,15 @@ require("dotenv").config();
 const express = require("express");
 const hbs = require("hbs");
 const logger = require("morgan");
+const passport = require("passport");
 
-require("./config/db.config"); // es como si pusieramos todas las lineas del db.confgi aquí, pero somos mejores que eso.
+require("./config/db.config"); // database initial setup
+require("./config/passport.config");
 
 const app = express();
+
+const { isSelected } = require("./helpers");
+hbs.registerHelper("isSelected", isSelected);
 
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
@@ -17,8 +22,11 @@ app.set("view engine", "hbs");
 
 hbs.registerPartials(__dirname + "/views/partials");
 
-const { sessionConfig } = require("./config/session.config");
+const sessionConfig = require("./config/session.config");
 app.use(sessionConfig);
+
+app.use(passport.initialize());
+
 app.use((req, res, next) => {
   res.locals.currentUser = req.session.currentUser;
   next();
